@@ -37,4 +37,8 @@ public slots:
     void deleteSocket();
     void readClient();
     void serverCommand();
+
+public:
+        void myIP(); //ch
+
 };
