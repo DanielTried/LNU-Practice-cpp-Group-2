@@ -60,8 +60,7 @@ OBJECTS       = release/StartDialog.o \
 		release/moc_ChatClient.o \
 		release/moc_StartDialog.o
 
-DIST          = Des.qml \
-		DesForm.ui.qml ChatClient.h \
+DIST          =  ChatClient.h \
 		Commands.h \
 		StartDialog.h StartDialog.cpp \
 		main.cpp \
@@ -604,7 +603,7 @@ release/moc_ChatClient.cpp: ChatClient.h \
 		Commands.h \
 		release/moc_predefs.h \
 		C:/Qt/6.2.3/mingw_64/bin/moc.exe
-	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Dara/Desktop/TCPchat/Chat-main VARIANT/ChatClient/release/moc_predefs.h" -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -I"C:/Users/Dara/Desktop/TCPchat/Chat-main VARIANT/ChatClient" -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtNetwork -IC:/Qt/6.2.3/mingw_64/include/QtCore -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include ChatClient.h -o release\moc_ChatClient.cpp
+	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Dara/Desktop/TCPchat/minimal-chatroom-master/Chat-maintere/Chat-main/ChatClient/release/moc_predefs.h -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -IC:/Users/Dara/Desktop/TCPchat/minimal-chatroom-master/Chat-maintere/Chat-main/ChatClient -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtNetwork -IC:/Qt/6.2.3/mingw_64/include/QtCore -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include ChatClient.h -o release\moc_ChatClient.cpp
 
 release/moc_StartDialog.cpp: StartDialog.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/QtWidgets \
@@ -1086,7 +1085,7 @@ release/moc_StartDialog.cpp: StartDialog.h \
 		C:/Qt/6.2.3/mingw_64/include/QtWidgets/qtwidgetsversion.h \
 		release/moc_predefs.h \
 		C:/Qt/6.2.3/mingw_64/bin/moc.exe
-	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include "C:/Users/Dara/Desktop/TCPchat/Chat-main VARIANT/ChatClient/release/moc_predefs.h" -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -I"C:/Users/Dara/Desktop/TCPchat/Chat-main VARIANT/ChatClient" -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtNetwork -IC:/Qt/6.2.3/mingw_64/include/QtCore -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include StartDialog.h -o release\moc_StartDialog.cpp
+	C:\Qt\6.2.3\mingw_64\bin\moc.exe $(DEFINES) --include C:/Users/Dara/Desktop/TCPchat/minimal-chatroom-master/Chat-maintere/Chat-main/ChatClient/release/moc_predefs.h -IC:/Qt/6.2.3/mingw_64/mkspecs/win32-g++ -IC:/Users/Dara/Desktop/TCPchat/minimal-chatroom-master/Chat-maintere/Chat-main/ChatClient -IC:/Qt/6.2.3/mingw_64/include -IC:/Qt/6.2.3/mingw_64/include/QtWidgets -IC:/Qt/6.2.3/mingw_64/include/QtGui -IC:/Qt/6.2.3/mingw_64/include/QtNetwork -IC:/Qt/6.2.3/mingw_64/include/QtCore -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IC:/Qt/Tools/mingw900_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IC:/Qt/Tools/mingw900_64/x86_64-w64-mingw32/include StartDialog.h -o release\moc_StartDialog.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:

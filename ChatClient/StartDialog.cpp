@@ -3,7 +3,7 @@
 StartDialog::StartDialog(QWidget* parent) : QDialog(parent)
 {
     m_nickname = new QLineEdit;
-    QLabel* lblName = new QLabel("Name:");
+    QLabel* lblName = new QLabel("Введіть своє ім'я:");
     QPushButton* okBtn = new QPushButton("Ok");
 
     connect(okBtn, SIGNAL(clicked()), SLOT(nameCompleted()));

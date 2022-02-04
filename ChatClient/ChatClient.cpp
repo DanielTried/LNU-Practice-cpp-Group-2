@@ -1,6 +1,6 @@
 #include "ChatClient.h"
 
-//Define interaction elements and create layout
+//визначення елементів та створення макету з допомогою QWidget
 ChatClient::ChatClient(const QString& host, int port, QWidget *parent)
     : QWidget(parent), m_socket(nullptr), m_nextBlockSize(0)
 {
@@ -10,32 +10,36 @@ ChatClient::ChatClient(const QString& host, int port, QWidget *parent)
     m_messages = new QTextEdit;
     m_messages->setReadOnly(true);
     m_message = new QLineEdit;
-    m_name = new QLabel("Your name");
+    m_name = new QLabel("*Ваше ім'я*");
 
-    QPushButton* sendButton = new QPushButton("Send");
+    // кнопки
+    QPushButton* sendButton = new QPushButton("Надіслати");
     connect(sendButton, SIGNAL(clicked()), this, SLOT(sendMessage()));
     connect(m_message, SIGNAL(returnPressed()), this, SLOT(sendMessage()));
 
-    QPushButton* connectButton = new QPushButton("Enter to the chat");
+    QPushButton* connectButton = new QPushButton("Увійти до кімнати");
     connect(connectButton, SIGNAL(clicked()), this, SLOT(connectToServer()));
 
-    QHBoxLayout* hLayout = new QHBoxLayout;
+
+  QHBoxLayout* hLayout = new QHBoxLayout;
     hLayout->addWidget(m_name);
     hLayout->addWidget(m_message, 3);
     hLayout->addWidget(sendButton);
-    QVBoxLayout* vLayout = new QVBoxLayout;
-    vLayout->addWidget(new QLabel("Chat"));
+   QVBoxLayout* vLayout = new QVBoxLayout;
+    vLayout->addWidget(new QLabel("TCPChat"));
     vLayout->addWidget(m_messages);
     vLayout->addLayout(hLayout);
     vLayout->addWidget(connectButton);
     setLayout(vLayout);
 }
 
+// Приєднання
 void ChatClient::connectToServer()
 {
     if(m_socket && (m_socket->state() == QTcpSocket::ConnectedState))
         return;
 
+// Вікно приєднання до сервера
     StartDialog* startDialog = new StartDialog;
     if(startDialog->exec() == QDialog::Accepted)
     {
@@ -52,13 +56,14 @@ void ChatClient::connectToServer()
         if(m_socket->waitForConnected(1000))
             sendClientInfo();
     }
+    // Закриття вікна
     delete startDialog;
 }
 
 void ChatClient::socketConnected()
 {
 //    повідомлення про час підєднання;
-//    m_messages->append(time.currentTime().toString() + " Connected to the chat");
+//    m_messages->append(time.currentTime().toString() + " Приєднано");
 }
 
 void ChatClient::socketDisconnected()
@@ -71,7 +76,7 @@ void ChatClient::socketReadReady()
     QDataStream in(m_socket);
     in.setVersion(QDataStream::Qt_6_0);
 
-    //Checking message integrity
+    //перевірка цілісності повідомлення
     if(m_nextBlockSize == 0)
     {
         if(m_socket->bytesAvailable() < sizeof(quint16))
@@ -163,3 +168,15 @@ void ChatClient::sendClientInfo()
     m_socket->write(data);
 }
 
+//Display connection errors
+void ChatClient::socketError(QAbstractSocket::SocketError error)
+{
+    QString strError = " Error: " + (error == QAbstractSocket::HostNotFoundError ? "Хост не знайдено." :
+                                    error == QAbstractSocket::RemoteHostClosedError ? "Відалений хост закритий" :
+                                    error == QAbstractSocket::ConnectionRefusedError ? "Відмовлено" :
+                                    QString(m_socket->errorString()));
+    m_messages->append(QTime::currentTime().toString() + strError);
+
+    m_socket->deleteLater();
+    m_socket = nullptr;
+}
